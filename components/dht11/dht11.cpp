@@ -34,7 +34,7 @@ float read_humidity() {
         ESP_LOGI(TAG, "Humidity: %.1f%%", (double)humidity); // Cast to double for logging
         return humidity;
     } else {
-        ESP_LOGE(TAG, "Failed to read humidity from DHT11");
+        ESP_LOGE(TAG, "Failed to read humidity from DHT11, error code: %d", result);
         return -1; // Indicating error
     }
 }

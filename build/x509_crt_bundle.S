@@ -1,4 +1,4 @@
-/* * Data converted from C:/Users/moses/BLEWeatherStation/hello_world/build/esp-idf/mbedtls/x509_crt_bundle
+/* * Data converted from C:/Users/moses/BLEWeatherStation/WeatherStation/build/esp-idf/mbedtls/x509_crt_bundle
  */
 .data
 .section .rodata.embedded
