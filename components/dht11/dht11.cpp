@@ -18,10 +18,10 @@ float read_temperature() {
     float temperature = 0; // Declare temperature as float
     esp_err_t result = dht_read_float_data(DHT_TYPE_DHT11, DHT11_GPIO_PIN, nullptr, &temperature); // Pass float pointer
     if (result == ESP_OK) {
-        ESP_LOGI(TAG, "Temperature: %.1f°C", (double)temperature); // Cast to double for logging
+        // ESP_LOGI(TAG, "Temperature: %.1f°C", (double)temperature); // Cast to double for logging
         return temperature;
     } else {
-        ESP_LOGE(TAG, "Failed to read temperature from DHT11");
+        // ESP_LOGE(TAG, "Failed to read temperature from DHT11");
         return -1; // Indicating error
     }
 }
@@ -31,10 +31,10 @@ float read_humidity() {
     float humidity = 0; // Declare humidity as float
     esp_err_t result = dht_read_float_data(DHT_TYPE_DHT11, DHT11_GPIO_PIN, &humidity, nullptr); // Pass float pointer
     if (result == ESP_OK) {
-        ESP_LOGI(TAG, "Humidity: %.1f%%", (double)humidity); // Cast to double for logging
+        // ESP_LOGI(TAG, "Humidity: %.1f%%", (double)humidity); // Cast to double for logging
         return humidity;
     } else {
-        ESP_LOGE(TAG, "Failed to read humidity from DHT11, error code: %d", result);
+        // ESP_LOGE(TAG, "Failed to read humidity from DHT11, error code: %d", result);
         return -1; // Indicating error
     }
 }

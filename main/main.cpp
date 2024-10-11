@@ -14,15 +14,18 @@
 #include "esp_system.h"  // For esp_restart and esp_get_minimum_free_heap_size
 #include "esp_log.h"     // For logging
 #include "esp_err.h"     // For esp_err_t
-#include "components/dht11/dht11.h"
+#include "dht11.h"
+#include "rgb_led.h"
 
 
 extern "C" void app_main(void) {
     DHT11_Init();
+    init_rgb_led();
+
 
     while (1) {
         float temperature = read_temperature();
-        
+
         vTaskDelay(pdMS_TO_TICKS(2000));
         
         float humidity = read_humidity();
@@ -40,6 +43,17 @@ extern "C" void app_main(void) {
 
         // Delay for 2 seconds
         vTaskDelay(pdMS_TO_TICKS(2000));
+
+        set_rgb_led_color(255, 0, 0);
+
+        vTaskDelay(pdMS_TO_TICKS(2000));
+
+        set_rgb_led_color(0, 255, 0);
+
+        vTaskDelay(pdMS_TO_TICKS(2000));
+        
+        set_rgb_led_color(0, 0, 255);
+
     }
 }
 
