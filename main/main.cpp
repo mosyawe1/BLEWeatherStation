@@ -44,16 +44,15 @@ extern "C" void app_main(void) {
         // Delay for 2 seconds
         vTaskDelay(pdMS_TO_TICKS(2000));
 
-        set_rgb_led_color(255, 0, 0);
-
-        vTaskDelay(pdMS_TO_TICKS(2000));
-
-        set_rgb_led_color(0, 255, 0);
-
-        vTaskDelay(pdMS_TO_TICKS(2000));
-        
-        set_rgb_led_color(0, 0, 255);
-
+        if (temperature < 15) {
+            set_rgb_led_color(255, 0, 0);
+        }
+        else if (temperature > 15 && temperature < 30) {
+            set_rgb_led_color(0, 255, 0);
+        }
+        else {
+            set_rgb_led_color(0, 0, 255);
+        }
     }
 }
 
